@@ -1,0 +1,17 @@
+{
+  "name": "quotes-bot",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "npm app.js"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "GarWox",
+  "license": "MIT",
+  "description": "Quotes Bot",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "chalk": "^5.3.0"
+  }
+}
