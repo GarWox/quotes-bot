@@ -1,17 +1,20 @@
 import axios from "axios";
 import chalk from "chalk";
 import { createInterface } from "readline";
+import { readFile } from "fs/promises";
+
+const data = await readFile("config.json", "utf-8");
+
+const config = JSON.parse(data);
+
+const API_KEY = config.apikey;
 
 const rl = createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-const API_KEY = "Six/vVrQUY1+ep2uE5dtXw==CHpG8S8TqyPmIrK9";
-
 function init() {
-  let category = "";
-
   rl.question("Escribe una categoria\n", (category) => {
     if (!category) {
       console.log(chalk.red("No introduciste una categoria"));
