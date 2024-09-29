@@ -9,7 +9,7 @@
   "type": "module",
   "author": "GarWox",
   "license": "MIT",
-  "description": "Quotes Bot",
+  "description": "Un bot que te da una cita de alguna persona.",
   "dependencies": {
     "axios": "^1.7.7",
     "chalk": "^5.3.0"

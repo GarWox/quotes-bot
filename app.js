@@ -14,15 +14,93 @@ const rl = createInterface({
   output: process.stdout,
 });
 
+const categories = [
+  "age",
+  "alone",
+  "amazing",
+  "anger",
+  "architecture",
+  "art",
+  "attitude",
+  "beauty",
+  "best",
+  "birthday",
+  "business",
+  "car",
+  "change",
+  "communication",
+  "computers",
+  "cool",
+  "courage",
+  "dad",
+  "dating",
+  "death",
+  "design",
+  "dreams",
+  "education",
+  "environmental",
+  "equality",
+  "experience",
+  "failure",
+  "faith",
+  "family",
+  "famous",
+  "fear",
+  "fitness",
+  "food",
+  "forgiveness",
+  "freedom",
+  "friendship",
+  "funny",
+  "future",
+  "god",
+  "good",
+  "government",
+  "graduation",
+  "great",
+  "happiness",
+  "health",
+  "history",
+  "home",
+  "hope",
+  "humor",
+  "imagination",
+  "inspirational",
+  "intelligence",
+  "jealousy",
+  "knowledge",
+  "leadership",
+  "learning",
+  "legal",
+  "life",
+  "love",
+  "marriage",
+  "medical",
+  "men",
+  "mom",
+  "money",
+  "morning",
+  "movies",
+  "success",
+];
+
 function init() {
-  rl.question("Escribe una categoria\n", (category) => {
-    if (!category) {
-      console.log(chalk.red("No introduciste una categoria"));
-      init();
-    } else {
-      getQuote(category);
+  rl.question(
+    chalk.blueBright("\nEscoge una categoría: ") +
+      chalk.yellow(`${categories.join(", ")}\n\n`),
+    (category) => {
+      if (!category) {
+        console.log(
+          chalk.magenta(
+            "No introduciste una categoria. Tendrás una cita aleatoria"
+          )
+        );
+        getQuote(categories[Math.round(Math.random() * 67)]);
+      } else {
+        getQuote(category);
+      }
     }
-  });
+  );
 }
 
 async function getQuote(category) {
@@ -40,6 +118,7 @@ async function getQuote(category) {
       })
       .then((response) => {
         console.log(response.data);
+        init();
       });
   } catch (err) {
     console.log(chalk.red(err));
