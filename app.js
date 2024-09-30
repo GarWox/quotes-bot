@@ -118,7 +118,7 @@ async function getQuote(category) {
       })
       .then((response) => {
         console.log(response.data);
-        init();
+        rl.close();
       });
   } catch (err) {
     console.log(chalk.red(err));
